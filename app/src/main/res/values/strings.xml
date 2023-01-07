@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidLibrary</string>
+    <string name="MenuLogo">Book\'s Library</string>
+    <string name="lorem_ipsum15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis elementum nibh. Vestibulum eu posuere.</string>
+    <string name="author">Author</string>
+    <string name="name">Name</string>
+    <string name="nextBtn">Next</string>
+    <string name="closeBtn">Close</string>
+</resources>
