@@ -6,4 +6,5 @@
     <string name="name">Name</string>
     <string name="nextBtn">Next</string>
     <string name="closeBtn">Close</string>
+    <string name="menu">Menu</string>
 </resources>

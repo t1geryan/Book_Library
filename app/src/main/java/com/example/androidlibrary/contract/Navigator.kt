@@ -10,6 +10,9 @@ interface Navigator {
 
     fun launchBookFragment(book: Book)
 
-    fun backToList()
+    fun launchNextBook(currentID: Long)
 
+    fun closeBookFragment()
+
+    fun backToList()
 }

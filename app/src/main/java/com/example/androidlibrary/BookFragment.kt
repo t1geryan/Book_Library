@@ -24,7 +24,9 @@ class BookFragment : Fragment() {
         binding.fragmentBookAuthor.text = requireArguments().getString(ARG_AUTHOR)
         binding.fragmentBookDescription.text = requireArguments().getString(ARG_DESCRIPTION)
 
-        binding.closeButton.setOnClickListener { navigator().backToList() }
+        binding.closeButton.setOnClickListener { navigator().closeBookFragment() }
+        binding.menuButton.setOnClickListener { navigator().backToList() }
+        binding.nextBookButton.setOnClickListener { navigator().launchNextBook(requireArguments().getLong(ARG_ID)) }
         return binding.root
     }
 

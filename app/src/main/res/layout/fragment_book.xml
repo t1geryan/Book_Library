@@ -8,8 +8,10 @@
         android:id="@+id/nextBookButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:theme="@style/bookFragmentButtonStyle"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/nextBtn"
+        android:theme="@style/bookFragmentButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -17,10 +19,23 @@
         android:id="@+id/closeButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/closeBtn"
         android:theme="@style/bookFragmentButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/menu"
+        android:theme="@style/bookFragmentButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/fragmentBookName"

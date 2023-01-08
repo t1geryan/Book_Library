@@ -36,4 +36,17 @@ class MainActivity : AppCompatActivity(), Navigator {
     override fun backToList() {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
+
+    override fun launchNextBook(currentID: Long) {
+        val nextIndex: Int =
+            if (currentID < bookData.size - 1)
+                currentID.toInt() + 1
+            else
+                0
+        launchBookFragment(bookData[nextIndex])
+    }
+
+    override fun closeBookFragment() {
+        onBackPressed()
+    }
 }
