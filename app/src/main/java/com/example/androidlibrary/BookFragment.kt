@@ -40,6 +40,8 @@ class BookFragment : Fragment() {
         @JvmStatic
         private val ARG_DESCRIPTION = "ARG_DESCRIPTION"
 
+        // не очень хорошо, что фрагмент книги должен обязатательно принимать какой-то id (нужен для запуска следующего)
+        // мб лучше сделать, чтобы launchNextBook принимала имя автора и название книги и искать её среди данных и запускать следующую
         @JvmStatic
         fun newInstance(book: Book) : BookFragment {
             val args = Bundle().apply {

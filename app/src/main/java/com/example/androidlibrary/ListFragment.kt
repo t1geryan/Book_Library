@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.androidlibrary.adapter.Book
 import com.example.androidlibrary.adapter.BookAdapter
-import com.example.androidlibrary.adapter.bookData
 import com.example.androidlibrary.contract.navigator
 import com.example.androidlibrary.databinding.FragmentListviewBinding
 
@@ -21,6 +20,7 @@ class ListFragment : Fragment() {
         adapter = BookAdapter(bookData)
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
