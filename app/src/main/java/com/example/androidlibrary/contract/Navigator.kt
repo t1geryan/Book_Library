@@ -1,7 +1,7 @@
 package com.example.androidlibrary.contract
 
 import androidx.fragment.app.Fragment
-import com.example.androidlibrary.adapter.Book
+import com.example.androidlibrary.model.Book
 
 fun Fragment.navigator() : Navigator = requireActivity() as Navigator
 
@@ -10,7 +10,7 @@ interface Navigator {
 
     fun launchBookFragment(book: Book)
 
-    fun launchNextBook(currentID: Long)
+    fun launchNextBook(author: String, title: String)
 
     fun closeBookFragment()
 

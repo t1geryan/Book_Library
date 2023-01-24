@@ -3,9 +3,10 @@ package com.example.androidlibrary
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
-import com.example.androidlibrary.adapter.*
 import com.example.androidlibrary.contract.Navigator
 import com.example.androidlibrary.databinding.ActivityMainBinding
+import com.example.androidlibrary.model.Book
+import com.example.androidlibrary.model.booksService
 
 class MainActivity : AppCompatActivity(), Navigator {
     private lateinit var binding: ActivityMainBinding
@@ -37,16 +38,20 @@ class MainActivity : AppCompatActivity(), Navigator {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
-    override fun launchNextBook(currentID: Long) {
-        val nextIndex: Int =
-            if (currentID < bookData.size - 1)
-                currentID.toInt() + 1
-            else
-                0
-        launchBookFragment(bookData[nextIndex])
+    override fun launchNextBook(author: String, title: String) {
+        val currentID = booksService.findBookPosition(author,title)
+        if (currentID != -1) {
+            val nextIndex =
+                if (currentID < booksService.size - 1)
+                    currentID + 1
+                else
+                    0
+            launchBookFragment(booksService.getBook(nextIndex))
+        }
     }
 
     override fun closeBookFragment() {
         onBackPressed()
     }
+
 }

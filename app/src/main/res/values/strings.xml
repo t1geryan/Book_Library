@@ -5,6 +5,8 @@
     <string name="author">Author</string>
     <string name="name">Name</string>
     <string name="nextBtn">Next</string>
-    <string name="closeBtn">Close</string>
+    <string name="backBtn">Back</string>
     <string name="menu">Menu</string>
+    <string name="book_ic">book_ic</string>
+    <string name="deletebookbtn">deleteBookBtn</string>
 </resources>

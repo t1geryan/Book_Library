@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.androidlibrary.adapter.Book
+import com.example.androidlibrary.model.Book
 import com.example.androidlibrary.contract.navigator
 import com.example.androidlibrary.databinding.FragmentBookBinding
 
@@ -20,34 +20,32 @@ class BookFragment : Fragment() {
     ): View {
         binding = FragmentBookBinding.inflate(inflater, container, false)
 
-        binding.fragmentBookName.text = requireArguments().getString(ARG_NAME)
+        binding.fragmentBookName.text = requireArguments().getString(ARG_TITLE)
         binding.fragmentBookAuthor.text = requireArguments().getString(ARG_AUTHOR)
         binding.fragmentBookDescription.text = requireArguments().getString(ARG_DESCRIPTION)
 
         binding.closeButton.setOnClickListener { navigator().closeBookFragment() }
         binding.menuButton.setOnClickListener { navigator().backToList() }
-        binding.nextBookButton.setOnClickListener { navigator().launchNextBook(requireArguments().getLong(ARG_ID)) }
+        binding.nextBookButton.setOnClickListener { navigator().launchNextBook(
+            requireArguments().getString(ARG_AUTHOR)!!,
+            requireArguments().getString(ARG_TITLE)!!
+        ) }
         return binding.root
     }
 
     companion object {
         @JvmStatic
-        private val ARG_ID = "ARG_ID"
-        @JvmStatic
         private val ARG_AUTHOR = "ARG_AUTHOR"
         @JvmStatic
-        private val ARG_NAME = "ARG_NAME"
+        private val ARG_TITLE = "ARG_NAME"
         @JvmStatic
         private val ARG_DESCRIPTION = "ARG_DESCRIPTION"
 
-        // не очень хорошо, что фрагмент книги должен обязатательно принимать какой-то id (нужен для запуска следующего)
-        // мб лучше сделать, чтобы launchNextBook принимала имя автора и название книги и искать её среди данных и запускать следующую
         @JvmStatic
         fun newInstance(book: Book) : BookFragment {
             val args = Bundle().apply {
-                putLong(ARG_ID, book.id)
                 putString(ARG_AUTHOR, book.author)
-                putString(ARG_NAME, book.name)
+                putString(ARG_TITLE, book.title)
                 putString(ARG_DESCRIPTION, book.description)
             }
             val fragment = BookFragment()
