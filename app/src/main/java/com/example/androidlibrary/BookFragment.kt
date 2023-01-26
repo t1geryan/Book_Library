@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.androidlibrary.contract.HasCustomTitleToolbar
 import com.example.androidlibrary.model.Book
 import com.example.androidlibrary.contract.navigator
 import com.example.androidlibrary.databinding.FragmentBookBinding
 
-class BookFragment : Fragment() {
+class BookFragment : Fragment(), HasCustomTitleToolbar {
 
     private lateinit var binding: FragmentBookBinding
 
@@ -32,6 +33,8 @@ class BookFragment : Fragment() {
         ) }
         return binding.root
     }
+
+    override fun getTitle(): Int = R.string.book
 
     companion object {
         @JvmStatic

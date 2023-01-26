@@ -10,27 +10,29 @@
 
     <TextView
         android:id="@+id/itemBookTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="@string/name"
-        android:textColor="@color/black"
+        android:layout_marginStart="12dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:lines="1"
-        android:ellipsize="end"
-        android:layout_marginStart="12dp"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
         app:layout_constraintStart_toEndOf="@+id/bookImageView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/name" />
 
     <TextView
         android:id="@+id/itemBookAuthor"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:lines="1"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/bookImageView"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
         app:layout_constraintStart_toStartOf="@+id/itemBookTitle"
         app:layout_constraintTop_toBottomOf="@+id/itemBookTitle"
         tools:text="@string/author" />
@@ -46,8 +48,8 @@
 
     <ImageView
         android:id="@+id/deleteButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
         android:src="@drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
