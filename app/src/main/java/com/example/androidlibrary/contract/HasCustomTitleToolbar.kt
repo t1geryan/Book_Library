@@ -4,5 +4,5 @@ import androidx.annotation.StringRes
 
 interface HasCustomTitleToolbar {
     @StringRes
-    fun getTitle() : Int
+    fun getCustomTitle() : Int
 }

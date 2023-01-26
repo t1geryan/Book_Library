@@ -12,7 +12,7 @@ import com.example.androidlibrary.databinding.FragmentListviewBinding
 import com.example.androidlibrary.model.*
 import com.github.javafaker.Faker
 
-class ListFragment : Fragment(), HasCustomActionsToolbar {
+class ListFragment : Fragment(),HasCustomTitleToolbar, HasCustomActionsToolbar {
 
     private lateinit var binding: FragmentListviewBinding
     private lateinit var adapter: BooksAdapter
@@ -55,6 +55,8 @@ class ListFragment : Fragment(), HasCustomActionsToolbar {
         booksService.removeListener(booksListChangeListener)
         super.onDestroy()
     }
+
+    override fun getCustomTitle(): Int = R.string.book_library
 
     override fun getCustomActionsList():List<CustomAction> {
         val addBookAction = CustomAction(

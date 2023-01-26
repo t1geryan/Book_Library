@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity(), Navigator {
 
     private fun updateTaskbar() {
         val fragment = currentFragment
-        binding.toolbar.setTitle((fragment as? HasCustomTitleToolbar)?.getTitle() ?: R.string.app_name)
-        if (fragment is HasCustomActionsToolbar) {
+        binding.toolbar.setTitle((fragment as? HasCustomTitleToolbar)?.getCustomTitle() ?: R.string.app_name)
+
+        if (fragment is HasCustomActionsToolbar)
             fragment.getCustomActionsList().forEach {
                 createCustomToolbarAction(it)
             }
-        }
         else
             binding.toolbar.menu.clear()
     }

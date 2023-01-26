@@ -34,7 +34,7 @@ class BookFragment : Fragment(), HasCustomTitleToolbar {
         return binding.root
     }
 
-    override fun getTitle(): Int = R.string.book
+    override fun getCustomTitle(): Int = R.string.book
 
     companion object {
         @JvmStatic
