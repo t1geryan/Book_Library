@@ -3,6 +3,7 @@ package com.example.androidlibrary.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidlibrary.R
@@ -13,8 +14,9 @@ class BooksAdapter(private val actionListener: BookListActionListener) : Recycle
 
     var books: List<Book> = emptyList()
         set(value) {
+            val diffResult = DiffUtil.calculateDiff(BooksDiffCallback(field, value))
             field = value
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     class BooksViewHolder (val binding: ItemBookBinding) : RecyclerView.ViewHolder(binding.root)

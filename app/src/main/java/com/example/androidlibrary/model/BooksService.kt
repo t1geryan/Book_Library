@@ -32,14 +32,17 @@ class BookService {
     fun getBook(position: Int) : Book = books[position]
 
     fun addBook(index: Int, book: Book) {
+        books = ArrayList(books)
         books.add(index, book)
         notifyChanges()
     }
 
     fun removeBook(book: Book) {
         val indexToDelete = books.indexOfFirst { it.compareTo(book) == 0 }
-        if (indexToDelete != -1)
+        if (indexToDelete != -1) {
+            books = ArrayList(books)
             books.removeAt(indexToDelete)
+        }
         notifyChanges()
     }
 
@@ -48,6 +51,7 @@ class BookService {
     }
 
     fun removeAllBooks() {
+        books = ArrayList(books)
         books.clear()
         notifyChanges()
     }
