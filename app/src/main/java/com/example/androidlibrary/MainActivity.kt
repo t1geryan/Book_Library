@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity(), Navigator {
         val iconDrawable = DrawableCompat.wrap(ContextCompat.getDrawable(this, action.icon)!!)
         iconDrawable.setTint(resources.getColor(R.color.icon_gray, theme))
 
-        binding.toolbar.menu.add(action.text)
         val menuItem = binding.toolbar.menu.add(action.text)
         menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS)
         menuItem.icon = iconDrawable
